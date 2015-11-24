@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <p>
+    <button class="btn btn-lg btn-success" ng-href="#/" ng-click="onLoadButtonClicked()">Load Content<span class="glyphicon glyphicon-ok"></span></button>
+    <p class="text-muted pul" ng-show="isMessageLoadingPending">chargement en cours...</p>
+  </p>
+</div>
+<table>
+  <tr ng-repeat="message in messages">
+    <td>
+      {{ message.id}}
+    </td>
+    <td>
+      {{ message.data}}
+    </td>
+  </tr>
+</table>
