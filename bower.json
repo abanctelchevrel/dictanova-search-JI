@@ -10,7 +10,8 @@
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
-    "parse-js-sdk": "~1.4.2"
+    "parse-js-sdk": "~1.4.2",
+    "angular-bootstrap": "angular-ui-bootstrap-bower#~0.14.3"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"
