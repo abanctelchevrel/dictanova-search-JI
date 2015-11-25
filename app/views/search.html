@@ -1,16 +1,23 @@
-<div class="jumbotron">
-  <p>
-    <button class="btn btn-lg btn-success" ng-href="#/" ng-click="onLoadButtonClicked()">Load Content<span class="glyphicon glyphicon-ok"></span></button>
-    <p class="text-muted pul" ng-show="isMessageLoadingPending">chargement en cours...</p>
-  </p>
-</div>
-<table>
-  <tr ng-repeat="message in messages">
-    <td>
-      {{ message.id}}
-    </td>
-    <td>
-      {{ message.data}}
-    </td>
-  </tr>
+<p class="text-muted pul" ng-show="isMessageLoadingPending">chargement en cours...</p>
+
+<table class="col-md-12 text-center table-striped table-bordered">
+    <tr>
+        <th class="text-center">ID</th>
+        <th class="text-center">Message</th>
+        <th class="text-center">Action</th>
+    </tr>
+    <tr ng-repeat="message in messages">
+        <td>
+            {{ message.id}}
+        </td>
+        <td>
+            {{ message.data}}
+        </td>
+        <td>
+            <button type="button" class="btn btn-default" aria-label="Left Align"
+                    ng-click="addActionLever('{{message.id}}')">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+        </td>
+    </tr>
 </table>
