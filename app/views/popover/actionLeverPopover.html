@@ -1,9 +1,9 @@
-<div>
+<form name="actionLeverPopover" ng-submit="popoverElement.create(content)">
     <div>
-        Id: <b>{{ data }}</b>
+        Nouveau <b>levier d'action</b>
     </div>
+        <input type="text" name="content" required ng-model="content">
     <div>
-        <button class="btn btn-primary" type="button" ng-click="popoverElement.close()">OK</button>
-        <button class="btn btn-warning" type="button" ng-click="popoverElement.close()">Cancel</button>
+        <button class="btn btn-primary" type="submit">Créer</button>
     </div>
-</div>
+</form>

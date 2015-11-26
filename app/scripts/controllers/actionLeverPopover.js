@@ -8,18 +8,17 @@
  * Controller of the dictanovaSearchJiApp
  */
 angular.module('dictanovaSearchJiApp')
-    .controller('actionLeverPopoverCtrl', function ($scope) {
+    .controller('actionLeverPopoverCtrl', function ($scope, $route, messageEntityManager) {
         // query popover
         $scope.popoverElement = {
             isOpen: false,
             templateUrl: '../../views/popover/actionLeverPopover.html',
-            open: function open(id) {
-                $scope.data = id;
-                $scope.popoverElement.data = 'Hello!';
-            },
 
-            close: function close() {
-                $scope.popoverElement.isOpen = false;
+            create: function create(content) {
+                messageEntityManager.create(content).then(function () {
+                    $scope.popoverElement.isOpen = false;
+                    $route.reload();
+                });
             }
         };
     });

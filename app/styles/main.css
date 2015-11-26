@@ -81,3 +81,6 @@ body {
     border-bottom: 0;
   }
 }
+.popover-content {
+  width: 250px;
+}

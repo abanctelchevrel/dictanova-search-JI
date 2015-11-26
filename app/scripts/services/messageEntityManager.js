@@ -9,11 +9,11 @@
  */
 angular.module('dictanovaSearchJiApp')
     .factory('messageEntityManager', ['$http', '$q', function ($http, $q) {
+        var Message = Parse.Object.extend('Message');
         return {
             loadAll: function () {
-                var message = Parse.Object.extend('Message');
                 var deferred = $q.defer();
-                var query = new Parse.Query(message);
+                var query = new Parse.Query(Message);
                 var messages = [];
 
                 query.find({
@@ -24,6 +24,21 @@ angular.module('dictanovaSearchJiApp')
                         deferred.resolve(messages);
                     },
                     error: function (error) {
+                        deferred.reject(error);
+                    }
+                });
+
+                return deferred.promise;
+            },
+            create: function (data) {
+                var deferred = $q.defer();
+                var message = new Message();
+                message.set('message', data);
+                message.save(null, {
+                    success: function(message) {
+                        deferred.resolve(message);
+                    },
+                    error: function(message, error) {
                         deferred.reject(error);
                     }
                 });
