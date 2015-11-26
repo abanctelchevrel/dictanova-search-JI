@@ -4,32 +4,11 @@
  * @ngdoc function
  * @name dictanovaSearchJiApp.controller:SearchCtrl
  * @description
- * # MainCtrl
+ * # SearchCtrl
  * Controller of the dictanovaSearchJiApp
  */
 angular.module('dictanovaSearchJiApp')
-    .controller('SearchCtrl', function (Conf, $scope, $uibModal, messageEntityManager) {
-        $scope.addActionLever = function(messageId) {
-            var modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: 'views/Modal/modalSearch.html',
-                controller: 'ModalCtrl',
-
-                resolve: {
-                    id: function () {
-                        return messageId;
-                    }
-                }
-
-            });
-
-            modalInstance.result.then(function () {
-                console.log('Ok');
-            }, function () {
-               console.log('Cancel');
-            });
-        };
-
+    .controller('SearchCtrl', function ($scope, messageEntityManager) {
         $scope.isMessageLoadingPending = true;
         messageEntityManager.loadAll().then(function (messages) {
             $scope.isMessageLoadingPending = false;

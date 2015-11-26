@@ -13,8 +13,13 @@
             {{ message.data}}
         </td>
         <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align"
-                    ng-click="addActionLever('{{message.id}}')">
+            <button ng-controller="actionLeverPopoverCtrl"
+                    popover-is-open="popoverElement.isOpen"
+                    uib-popover-template="popoverElement.templateUrl"
+                    popover-title="Ajouter un levier d'action"
+                    type="button"
+                    ng-click="popoverElement.open('{{message.id}}')"
+                    class="btn btn-default">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
         </td>
